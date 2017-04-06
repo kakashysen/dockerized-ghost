@@ -1,0 +1,24 @@
+version: '2'
+services:
+  web:
+    build: .
+    command: bash -c "rm shared/socks/ghost.socket &npm start --production"
+    ports:
+      - "2368"
+    volumes:
+      - ./config.js:/var/www/ghost/config.js
+      - ./backups-db:/var/www/ghost/backups-db
+      - ./shared:/var/www/ghost/shared
+  nginx:
+    image: nginx
+    volumes:
+      - .:/var/www/ghost
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    volumes_from:
+      - web
+    ports:
+      - "80:80"
+    depends_on:
+      - web
+    links:
+      - web:web

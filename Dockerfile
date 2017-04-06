@@ -1,7 +1,7 @@
 FROM node:6.10.2
 
 RUN mkdir -p /var/www/ghost
-ADD ./ghost /var/www/ghost
+ADD . /var/www/ghost
 RUN cd /var/www/ghost && npm install --production
 
 ## Move ghost into the system neighbourhood. Welcome yo!

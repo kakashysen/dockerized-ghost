@@ -22,8 +22,9 @@ config = {
         },
 
         server: {
-            host: '127.0.0.1',
-            port: '2368'
+            socket: 'shared/socks/ghost.socket'
+            //host: '127.0.0.1',
+            //port: '2368'
         }
     },
 
