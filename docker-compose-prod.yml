@@ -2,13 +2,14 @@ version: '2'
 services:
   web:
     build: .
-    command: bash -c "rm shared/socks/ghost.socket &npm start --production"
+    command: bash -c "rm shared/socks/ghost.socket & npm start --production"
     ports:
       - "2368"
     volumes:
       - ./config.js:/var/www/ghost/config.js
       - ./backups-db:/var/www/ghost/backups-db
       - ./shared:/var/www/ghost/shared
+      - ./content:/var/www/ghost/content
   nginx:
     image: nginx
     volumes:

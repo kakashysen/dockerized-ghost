@@ -8,3 +8,4 @@ services:
     volumes:
       - ./config.js:/var/www/ghost/config.js
       - ./backups-db:/var/www/ghost/backups-db
+      - ./content:/var/www/ghost/content
